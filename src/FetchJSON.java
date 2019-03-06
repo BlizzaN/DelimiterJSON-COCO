@@ -36,7 +36,7 @@ public class FetchJSON {
 		}
 	}
 	
-	//Read content from the object images
+	//Read content from the array images
 	private void readJSONImages(Object obj) {
 		//Create jsonobject
 		
@@ -59,7 +59,7 @@ public class FetchJSON {
 		
 	}
 	
-	//Create json file with data corresponding to the object images
+	//Create array and store the corresponding objects
 	private void createJSONImages(ArrayList<String> file_name, ArrayList<Long> id, Object obj) {
 		
 		JSONArray imageArray = new JSONArray();
@@ -81,7 +81,7 @@ public class FetchJSON {
 		readJSONAnnotations(obj, imgesObject);
 	}
 	
-	//Read content from the object images
+	//Read content from the array annotations
 	private void readJSONAnnotations(Object obj, JSONObject imgesObject) {
 
 		
@@ -94,8 +94,7 @@ public class FetchJSON {
 		
 		for(int i = 0; i < annotationArray.size(); i++) {
 			JSONObject jsonObj = (JSONObject)annotationArray.get(i);
-			
-			
+					
 			image_id.add((Long)jsonObj.get("image_id"));
 			caption.add((String) jsonObj.get("caption"));
 		}
@@ -104,6 +103,7 @@ public class FetchJSON {
 		}
 	
 	
+	//Create array and store the corresponding objects
 	private void createJSONAnnotations(ArrayList<Long> image_id, ArrayList<String> caption, JSONObject imgesObject) {
 		
 		JSONArray annotationArray = new JSONArray();
